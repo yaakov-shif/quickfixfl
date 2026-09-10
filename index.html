@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MarketReady | Vacant unit punch | Miami Gardens</title>
-  <meta name="description" content="MarketReady — vacant-unit punch in Miami Gardens. Light make-ready under $2,500. One invoice, NTE, photos." />
+  <title>MarketReady | Vacant-unit punch | Miami Gardens</title>
+  <meta name="description" content="MarketReady — light make-ready and vacant-unit punch in Miami Gardens and nearby North Miami-Dade. Written NTE under $2,500. One invoice." />
   <meta name="theme-color" content="#101010" />
   <link rel="canonical" href="https://yaakov-shif.github.io/quickfixfl/" />
-  <meta property="og:title" content="MarketReady — vacant unit punch, Miami Gardens" />
-  <meta property="og:description" content="We take the vacancy punch so your guy isn't stuck in an empty unit. Under $2,500. No floors. No electrical. No plumbing." />
+  <meta property="og:title" content="MarketReady — vacant-unit punch, Miami Gardens" />
+  <meta property="og:description" content="Light make-ready that keeps your guy out of an empty unit. Walk first. Written NTE. Under $2,500." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yaakov-shif.github.io/quickfixfl/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect fill='%23101010' width='64' height='64'/><rect fill='%23e85d04' width='8' height='64'/><text x='14' y='44' font-family='Arial Black,sans-serif' font-size='20' fill='%23f6f6f4'>MR</text></svg>" />
@@ -61,14 +61,8 @@
       z-index: 20;
     }
     .skip:focus { left: 24px; }
-    .topbar {
-      height: 10px;
-      background: var(--orange);
-    }
-    .wrap {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .topbar { height: 10px; background: var(--orange); }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     header.nav {
       display: flex;
       align-items: center;
@@ -76,25 +70,14 @@
       gap: 16px;
       padding: 18px 0 8px;
     }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      text-decoration: none;
-      color: inherit;
-    }
+    .brand { text-decoration: none; color: inherit; }
     .brand .kb {
       font-family: var(--display);
       font-size: 28px;
       letter-spacing: 0.06em;
       line-height: 1;
     }
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .nav-links { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -163,11 +146,7 @@
       letter-spacing: 0.04em;
       margin: 0 0 14px;
     }
-    .geo {
-      color: var(--muted);
-      margin: 0 0 22px;
-      font-size: 16px;
-    }
+    .geo { color: var(--muted); margin: 0 0 22px; font-size: 16px; }
     .lede {
       font-size: clamp(20px, 2.2vw, 24px);
       max-width: 22em;
@@ -175,17 +154,8 @@
       text-wrap: pretty;
     }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .ticket {
-      background: var(--card);
-      border: 1px solid var(--line);
-      position: relative;
-    }
-    .ticket::before {
-      content: "";
-      display: block;
-      height: 8px;
-      background: var(--orange);
-    }
+    .ticket { background: var(--card); border: 1px solid var(--line); position: relative; }
+    .ticket::before { content: ""; display: block; height: 8px; background: var(--orange); }
     .ticket-inner { padding: 22px 22px 20px; }
     .ticket h2 {
       font-family: var(--display);
@@ -193,11 +163,7 @@
       letter-spacing: 0.06em;
       margin: 0 0 4px;
     }
-    .ticket p.hint {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .ticket p.hint { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
     label.field {
       display: block;
       font-size: 12px;
@@ -207,7 +173,7 @@
       color: var(--muted);
       margin: 12px 0 6px;
     }
-    input[type="text"], input[type="tel"], textarea {
+    input[type="text"], input[type="tel"], input[type="email"], textarea {
       width: 100%;
       background: #111;
       color: var(--ink);
@@ -223,42 +189,23 @@
       gap: 6px 12px;
       margin: 8px 0 16px;
     }
-    .checks label {
+    .checks label, .consent {
       display: flex;
       gap: 8px;
-      align-items: center;
+      align-items: flex-start;
       font-size: 14px;
       min-height: 36px;
       cursor: pointer;
     }
-    .checks input { width: 16px; height: 16px; accent-color: var(--orange); }
-    .ticket-foot {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .status {
-      font-size: 13px;
-      color: var(--amber);
-      min-height: 20px;
-    }
+    .checks input, .consent input { width: 16px; height: 16px; margin-top: 3px; accent-color: var(--orange); flex-shrink: 0; }
+    .consent { margin: 14px 0 10px; }
+    .fine { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+    .ticket-foot { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .status { font-size: 13px; color: var(--amber); min-height: 20px; }
     section { padding: 8px 0 56px; }
-    .rule {
-      height: 3px;
-      background: var(--orange);
-      border: 0;
-      margin: 0 0 36px;
-    }
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .ledger {
-      background: var(--bg2);
-      padding: 22px 22px 10px;
-    }
+    .rule { height: 3px; background: var(--orange); border: 0; margin: 0 0 36px; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ledger { background: var(--bg2); padding: 22px 22px 10px; }
     .ledger.in { box-shadow: inset 0 8px 0 var(--amber); }
     .ledger.out { box-shadow: inset 0 8px 0 var(--red); }
     .ledger h3 {
@@ -270,17 +217,9 @@
     .ledger.in h3 { color: var(--amber); }
     .ledger.out h3 { color: var(--red); }
     .ledger ul { list-style: none; margin: 0; padding: 0; }
-    .ledger li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 17px;
-    }
+    .ledger li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
     .ledger.out li { color: var(--muted); }
-    .steps {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 0 28px;
-    }
+    .steps { display: grid; grid-template-columns: 180px 1fr; gap: 0 28px; }
     .steps ol { list-style: none; margin: 0; padding: 0; }
     .steps li {
       display: grid;
@@ -289,25 +228,19 @@
       padding: 18px 0;
       border-bottom: 1px solid var(--line);
     }
-    .num {
-      font-family: var(--display);
-      font-size: 32px;
-      color: var(--orange);
-      line-height: 1;
-    }
+    .num { font-family: var(--display); font-size: 32px; color: var(--orange); line-height: 1; }
     .steps h3 { margin: 0 0 4px; font-size: 18px; }
     .steps p { margin: 0; color: var(--muted); }
-    .aside {
-      color: var(--muted);
-      font-size: 15px;
+    .aside { color: var(--muted); font-size: 15px; }
+    .aside strong {
+      color: var(--ink);
+      display: block;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .aside strong { color: var(--ink); display: block; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
-    .who {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-      align-items: start;
-    }
+    .who { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; }
     .who p { font-size: 22px; margin: 0 0 16px; max-width: 22em; text-wrap: pretty; }
     .who ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
     .who li { padding: 8px 0; border-bottom: 1px solid var(--line); }
@@ -344,26 +277,24 @@
   <div class="topbar"></div>
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="#top">
-        <span class="kb">MarketReady</span>
-      </a>
+      <a class="brand" href="#top"><span class="kb">MarketReady</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#scope">Scope</a>
         <a href="#walk">How it works</a>
         <a href="#who">Who it's for</a>
-        <a class="btn" href="#ticket">Walk a unit</a>
+        <a class="btn" href="#ticket">Send a unit</a>
       </nav>
     </header>
 
     <section class="hero" id="top">
       <div>
-        <p class="kicker">Miami Gardens · 33169</p>
+        <p class="kicker">Miami Gardens + nearby North Miami-Dade</p>
         <h1>Market<br>Ready</h1>
-        <p class="subhead">The vacant unit punch.</p>
-        <p class="geo">Carol City · Opa-locka · Miami Gardens</p>
-        <p class="lede">We take the vacancy punch so your guy isn't stuck in an empty unit.</p>
+        <p class="subhead">The vacant-unit punch.</p>
+        <p class="geo">Launching in Miami Gardens, Opa-locka and nearby North Miami-Dade. Service area confirmed before the walk.</p>
+        <p class="lede">We handle the light make-ready work that keeps your maintenance guy stuck in an empty unit.</p>
         <div class="hero-actions">
-          <a class="btn" href="#ticket">Walk the first unit</a>
+          <a class="btn" href="#ticket">Send the unit</a>
           <a class="btn ghost" href="#scope">What's in scope</a>
         </div>
       </div>
@@ -371,25 +302,35 @@
       <form class="ticket" id="ticket" novalidate>
         <div class="ticket-inner">
           <h2>Walk ticket</h2>
-          <p class="hint">Send this. If the punch isn't worth doing, we say so.</p>
-          <label class="field" for="pm">Your name / office</label>
-          <input id="pm" name="pm" type="text" autocomplete="name" required placeholder="PM or leasing office" />
-          <label class="field" for="cell">Your cell</label>
-          <input id="cell" name="cell" type="tel" autocomplete="tel" required placeholder="So we can call you back" />
+          <p class="hint">Send the unit. We’ll reply with the next available walk window.</p>
+          <label class="field" for="pm">Your name</label>
+          <input id="pm" name="pm" type="text" autocomplete="name" required placeholder="Who to call back" />
+          <label class="field" for="office">Company / office</label>
+          <input id="office" name="office" type="text" autocomplete="organization" placeholder="Property management office" />
+          <label class="field" for="cell">Phone</label>
+          <input id="cell" name="cell" type="tel" autocomplete="tel" required placeholder="Best number" />
+          <label class="field" for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Optional" />
           <label class="field" for="property">Property / unit</label>
           <input id="property" name="property" type="text" required placeholder="Address or community + unit #" />
+          <label class="field" for="when">Requested timing</label>
+          <input id="when" name="when" type="text" placeholder="e.g. this week, after Friday clean" />
           <label class="field">On the punch</label>
           <div class="checks">
-            <label><input type="checkbox" name="item" value="Holes &amp; patch" checked /> Holes &amp; patch</label>
+            <label><input type="checkbox" name="item" value="Minor patching" checked /> Minor patching</label>
             <label><input type="checkbox" name="item" value="Touch-up paint" checked /> Touch-up paint</label>
             <label><input type="checkbox" name="item" value="Doors / knobs / locks" /> Doors / knobs / locks</label>
             <label><input type="checkbox" name="item" value="Blinds &amp; hardware" /> Blinds &amp; hardware</label>
-            <label><input type="checkbox" name="item" value="Punch walk with photos" checked /> Photos on the walk</label>
           </div>
           <label class="field" for="notes">Anything else</label>
-          <textarea id="notes" name="notes" placeholder="Light make-ready only. No floors, electrical, or plumbing."></textarea>
-          <label class="hp" for="company">Company</label>
-          <input class="hp" id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          <textarea id="notes" name="notes" placeholder="Light make-ready only. Final scope on the walk."></textarea>
+          <label class="hp" for="website">Website</label>
+          <input class="hp" id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          <label class="consent">
+            <input id="consent" name="consent" type="checkbox" required />
+            <span>You can contact me about this unit.</span>
+          </label>
+          <p class="fine">Subject to scope and availability. Walk first. Written NTE after review. No work starts without approval.</p>
           <div class="ticket-foot">
             <button class="btn" type="submit" id="send">Send walk request</button>
             <span class="status" id="status" role="status"></span>
@@ -397,7 +338,7 @@
         </div>
         <div class="sent-msg" id="sent">
           <h2>Sent.</h2>
-          <p>We'll reply on the cell you left. If the punch isn't worth doing, we say so.</p>
+          <p>We’ll reply with the next available walk window. If it’s outside our lane or not worth the spend, we’ll tell you before work starts.</p>
         </div>
       </form>
     </section>
@@ -405,28 +346,25 @@
     <hr class="rule" />
 
     <section id="scope">
-      <p class="kicker">The job</p>
+      <p class="kicker">Light make-ready</p>
       <div class="split">
         <article class="ledger in">
           <h3>In scope</h3>
           <ul>
-            <li>Holes &amp; patch</li>
-            <li>Touch-up paint</li>
-            <li>Doors / knobs / locks</li>
-            <li>Blinds &amp; hardware</li>
-            <li>Punch walk with photos</li>
-            <li>Under $2,500 only</li>
+            <li>Minor patching and touch-up paint</li>
+            <li>Minor door, knob and lock work</li>
+            <li>Blinds and hardware</li>
+            <li>Final scope confirmed on the walk</li>
+            <li>Written NTE. Every job under $2,500</li>
           </ul>
         </article>
         <article class="ledger out">
-          <h3>Not in scope</h3>
+          <h3>Outside our scope</h3>
           <ul>
-            <li>New floors</li>
-            <li>Full gut / sheetrock crew</li>
-            <li>Electrical</li>
-            <li>Plumbing</li>
-            <li>We'll tell you on the walk</li>
-            <li>No guessing. Separate quote.</li>
+            <li>Electrical, plumbing, HVAC, roofing</li>
+            <li>New flooring and full-gut work</li>
+            <li>If we spot excluded work, we flag it for your licensed trade</li>
+            <li>It is not included in our quote</li>
           </ul>
         </article>
       </div>
@@ -435,36 +373,36 @@
     <section id="walk">
       <div class="steps">
         <div class="aside">
-          <strong>How a unit closes</strong>
-          <p>One number. One invoice. Not-to-exceed before we start. You don't manage a roster.</p>
+          <strong>How it works</strong>
+          <p>One point of contact. One invoice. A written not-to-exceed price before work starts.</p>
         </div>
         <ol>
           <li>
             <span class="num">01</span>
             <div>
-              <h3>Walk it</h3>
-              <p>Same unit, same punch list. If it isn't light make-ready, we say so on the walk — not after drywall starts.</p>
+              <h3>Send the unit</h3>
+              <p>Share the property, unit and punch list. We’ll reply with the next available walk window.</p>
             </div>
           </li>
           <li>
             <span class="num">02</span>
             <div>
-              <h3>NTE before tools come out</h3>
-              <p>Not-to-exceed in writing. Under $2,500. You approve, then we start.</p>
+              <h3>Walk + price</h3>
+              <p>We confirm the scope and send a written not-to-exceed price. Every job stays under $2,500. You approve, then we start.</p>
             </div>
           </li>
           <li>
             <span class="num">03</span>
             <div>
-              <h3>Punch</h3>
-              <p>Holes, touch-up, doors, blinds, hardware. If the tech is late, we replace him. You don't chase a freelancer.</p>
+              <h3>You approve</h3>
+              <p>No work starts without your approval.</p>
             </div>
           </li>
           <li>
             <span class="num">04</span>
             <div>
-              <h3>MarketReady + photos</h3>
-              <p>Before / after the same day. You get a unit you can list, not a status meeting.</p>
+              <h3>Punch + proof</h3>
+              <p>We manage the tech and send before-and-after photos when the punch is complete.</p>
             </div>
           </li>
         </ol>
@@ -475,11 +413,11 @@
       <div class="who">
         <div>
           <p class="kicker">Who this is for</p>
-          <p>We're not replacing your guy. When he's booked or stuck in a vacant, we take the small stuff.</p>
+          <p>We’re not replacing your guy. When he’s booked or stuck in a vacant, we take the small stuff.</p>
         </div>
         <ul>
-          <li><span>Yes —</span> small local PMs, overflow, Gardens-area light turns</li>
-          <li><span>Yes —</span> one invoice, you pay us, not a stranger off Craigslist</li>
+          <li><span>Yes —</span> small local PMs, overflow, light turns nearby</li>
+          <li><span>Yes —</span> one point of contact and one invoice through MarketReady</li>
           <li><span>No —</span> becoming your maintenance department</li>
           <li><span>No —</span> electrical, plumbing, HVAC, roofing, new floors</li>
         </ul>
@@ -488,18 +426,20 @@
 
     <section>
       <div class="cta-band">
-        <h2>First unit: walk it with us.</h2>
-        <p>If the punch isn't worth doing, we say so.</p>
+        <h2>Send the unit. We’ll confirm the walk window.</h2>
+        <p>If it’s outside our lane or not worth the spend, we’ll tell you before work starts.</p>
         <p class="ask">Ask for Yaakov</p>
-        <p>MarketReady · Miami Gardens 33169</p>
-        <p style="margin-top:18px"><a class="btn" href="#ticket">Fill the walk ticket</a></p>
+        <p>MarketReady · Miami Gardens + nearby North Miami-Dade</p>
+        <p class="fine">Subject to scope and availability.</p>
+        <p style="margin-top:18px"><a class="btn" href="#ticket">Send a unit</a></p>
       </div>
     </section>
 
     <footer class="legal">
-      <p><strong>MarketReady</strong> · Miami Gardens</p>
-      <p>Light make-ready only. We do not take electrical, plumbing, HVAC, or roofing on this contract.</p>
-      <p>Operated by MANNYS MARKET LLC. &copy; 2026</p>
+      <p><strong>MarketReady</strong></p>
+      <p>Operated by MANNYS MARKET LLC, an active Florida limited liability company. MarketReady fictitious-name registration in progress.</p>
+      <p>Electrical, plumbing, HVAC, roofing, new flooring and full-gut work are outside our scope.</p>
+      <p>&copy; 2026 MANNYS MARKET LLC. All rights reserved.</p>
     </footer>
   </div>
   <script>
@@ -510,13 +450,21 @@
       var inbox = ["yaakov", "shifsales.com"].join("@");
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        if (document.getElementById("company").value) return;
+        if (document.getElementById("website").value) return;
         var pm = document.getElementById("pm").value.trim();
+        var office = document.getElementById("office").value.trim();
         var cell = document.getElementById("cell").value.trim();
+        var email = document.getElementById("email").value.trim();
         var property = document.getElementById("property").value.trim();
+        var when = document.getElementById("when").value.trim();
         var notes = document.getElementById("notes").value.trim();
+        var consent = document.getElementById("consent").checked;
         if (!pm || !cell || !property) {
-          status.textContent = "Name, cell, and property are required.";
+          status.textContent = "Name, phone, and property are required.";
+          return;
+        }
+        if (!consent) {
+          status.textContent = "Check the contact box so we can reply.";
           return;
         }
         var items = Array.prototype.slice.call(form.querySelectorAll('input[name="item"]:checked'))
@@ -529,18 +477,25 @@
           _template: "table",
           _captcha: "false",
           name: pm,
-          cell: cell,
+          company: office || "(none)",
+          phone: cell,
+          email: email || "(none)",
           property: property,
+          timing: when || "(not specified)",
           punch: punch,
           notes: notes || "(none)",
+          consent: "yes",
           message: [
             "MarketReady walk request",
             "From: " + pm,
-            "Cell: " + cell,
+            office ? "Office: " + office : "",
+            "Phone: " + cell,
+            email ? "Email: " + email : "",
             "Property: " + property,
+            when ? "Timing: " + when : "",
             "Punch: " + punch,
             notes ? "Notes: " + notes : "",
-            "Light make-ready only. Under $2,500. No floors / electrical / plumbing."
+            "Consent: yes. Subject to scope and availability."
           ].filter(Boolean).join("\n")
         };
         fetch("https://formsubmit.co/ajax/" + inbox, {
