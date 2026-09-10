@@ -3,110 +3,529 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quick Fix | MANNYS MARKET LLC</title>
-  <meta name="description" content="Quick Fix — handyman services in South Florida. Operated by MANNYS MARKET LLC." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>QF</text></svg>" />
+  <title>KEYS BACK | Quick Fix | MANNYS MARKET LLC</title>
+  <meta name="description" content="KEYS BACK — vacant-unit punch in Miami Gardens. Light make-ready under $2,500. One invoice, NTE, photos. Operated by MANNYS MARKET LLC d/b/a Quick Fix." />
+  <meta name="theme-color" content="#101010" />
+  <link rel="canonical" href="https://yaakov-shif.github.io/quickfixfl/" />
+  <meta property="og:title" content="KEYS BACK — vacant unit punch, Miami Gardens" />
+  <meta property="og:description" content="We take the vacancy punch so your guy isn't stuck in an empty unit. Under $2,500. No floors. No electrical. No plumbing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yaakov-shif.github.io/quickfixfl/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect fill='%23101010' width='64' height='64'/><rect fill='%23e85d04' width='8' height='64'/><text x='16' y='44' font-family='Arial Black,sans-serif' font-size='22' fill='%23f6f6f4'>KB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f4f1ea;
-      --ink: #1c1916;
-      --muted: #5c564e;
-      --line: #d9d2c5;
-      --accent: #c45c26;
+      --bg: #101010;
+      --bg2: #1a1a1a;
+      --card: #161616;
+      --ink: #f6f6f4;
+      --muted: #9e9e9a;
+      --line: #30302e;
+      --orange: #e85d04;
+      --amber: #f5ba18;
+      --red: #b44632;
+      --rail: 14px;
+      --display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+      --body: "Figtree", "Segoe UI", system-ui, sans-serif;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
     body {
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-family: var(--body);
       background: var(--bg);
       color: var(--ink);
       line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      border-left: var(--rail) solid var(--orange);
     }
-    header {
-      padding: 28px 22px 8px;
-      max-width: 720px;
+    a { color: var(--amber); }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 8px;
+      background: var(--amber);
+      color: #111;
+      padding: 8px 12px;
+      z-index: 20;
+    }
+    .skip:focus { left: 24px; }
+    .topbar {
+      height: 10px;
+      background: var(--orange);
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
-    .mark {
+    header.nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0 8px;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand .qf {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .brand .kb {
+      font-family: var(--display);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 12px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      background: var(--orange);
+      color: #fff;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      padding: 28px 0 56px;
+      align-items: start;
+    }
+    .kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin: 0 0 10px;
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(64px, 12vw, 128px);
+      line-height: 0.82;
+      letter-spacing: 0.02em;
+      margin: 0 0 8px;
+      text-wrap: pretty;
+    }
+    .subhead {
+      font-family: var(--display);
+      font-size: clamp(28px, 4.2vw, 42px);
+      color: var(--amber);
+      letter-spacing: 0.04em;
+      margin: 0 0 14px;
+    }
+    .geo {
+      color: var(--muted);
+      margin: 0 0 22px;
+      font-size: 16px;
+    }
+    .lede {
+      font-size: clamp(20px, 2.2vw, 24px);
+      max-width: 22em;
+      margin: 0 0 28px;
+      text-wrap: pretty;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .ticket {
+      background: var(--card);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .ticket::before {
+      content: "";
+      display: block;
+      height: 8px;
+      background: var(--orange);
+    }
+    .ticket-inner { padding: 22px 22px 20px; }
+    .ticket h2 {
+      font-family: var(--display);
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      margin: 0 0 4px;
+    }
+    .ticket p.hint {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    label.field {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 12px 0 6px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      background: #111;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      min-height: 44px;
+      padding: 10px 12px;
+      font: 16px var(--body);
+    }
+    textarea { min-height: 72px; resize: vertical; }
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+      margin: 8px 0 16px;
+    }
+    .checks label {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 14px;
+      min-height: 36px;
+      cursor: pointer;
+    }
+    .checks input { width: 16px; height: 16px; accent-color: var(--orange); }
+    .ticket-foot {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .status {
+      font-size: 13px;
+      color: var(--amber);
+      min-height: 20px;
+    }
+    section { padding: 8px 0 56px; }
+    .rule {
+      height: 3px;
+      background: var(--orange);
+      border: 0;
+      margin: 0 0 36px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ledger {
+      background: var(--bg2);
+      padding: 22px 22px 10px;
+    }
+    .ledger.in { box-shadow: inset 0 8px 0 var(--amber); }
+    .ledger.out { box-shadow: inset 0 8px 0 var(--red); }
+    .ledger h3 {
       font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
+      margin: 10px 0 14px;
     }
-    h1 {
-      font-size: clamp(36px, 8vw, 56px);
-      line-height: 0.95;
-      margin: 10px 0 12px;
-      letter-spacing: -0.03em;
-    }
-    .lede {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 36em;
-    }
-    main, footer {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 8px 22px 32px;
-    }
-    h2 {
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin: 36px 0 12px;
-      color: var(--muted);
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-top: 1px solid var(--line);
-    }
-    li {
-      padding: 14px 0;
+    .ledger.in h3 { color: var(--amber); }
+    .ledger.out h3 { color: var(--red); }
+    .ledger ul { list-style: none; margin: 0; padding: 0; }
+    .ledger li {
+      padding: 12px 0;
       border-bottom: 1px solid var(--line);
-      font-size: 18px;
+      font-size: 17px;
     }
-    .note {
-      margin-top: 28px;
-      padding: 16px 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-size: 15px;
+    .ledger.out li { color: var(--muted); }
+    .steps {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0 28px;
+    }
+    .steps ol { list-style: none; margin: 0; padding: 0; }
+    .steps li {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .num {
+      font-family: var(--display);
+      font-size: 32px;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .steps h3 { margin: 0 0 4px; font-size: 18px; }
+    .steps p { margin: 0; color: var(--muted); }
+    .aside {
       color: var(--muted);
+      font-size: 15px;
     }
-    footer {
+    .aside strong { color: var(--ink); display: block; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+    .who {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .who p { font-size: 22px; margin: 0 0 16px; max-width: 22em; text-wrap: pretty; }
+    .who ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
+    .who li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .who li span { color: var(--ink); font-weight: 600; }
+    .cta-band {
+      background: var(--bg2);
+      border-top: 8px solid var(--orange);
+      padding: 28px 28px 32px;
+    }
+    .cta-band h2 {
+      font-family: var(--display);
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: 0.04em;
+      margin: 0 0 8px;
+    }
+    .cta-band .ask { color: var(--amber); font-weight: 700; font-size: 20px; margin: 16px 0 4px; }
+    footer.legal {
+      padding: 28px 0 56px;
       color: var(--muted);
       font-size: 14px;
       border-top: 1px solid var(--line);
-      padding-top: 20px;
-      padding-bottom: 48px;
     }
-    footer strong { color: var(--ink); }
+    footer.legal strong { color: var(--ink); }
+    @media (max-width: 860px) {
+      body { border-left-width: 8px; }
+      .hero, .split, .steps, .who { grid-template-columns: 1fr; }
+      .checks { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(56px, 18vw, 96px); }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="mark">South Florida</div>
-    <h1>Quick Fix</h1>
-    <p class="lede">Small jobs done right. Assembly, mounting, paint, doors, and punch-list work — without the runaround.</p>
-  </header>
-  <main>
-    <h2>What we do</h2>
-    <ul>
-      <li>Furniture assembly</li>
-      <li>TV and fixture mounting</li>
-      <li>Interior paint and patch</li>
-      <li>Doors, hardware, and weatherstrip</li>
-      <li>Drywall repair</li>
-    </ul>
-    <p class="note">We do not take electrical, plumbing, HVAC, or roofing jobs. If it needs a licensed trade, we’ll tell you.</p>
-  </main>
-  <footer>
-    <p><strong>MANNYS MARKET LLC</strong> doing business as Quick Fix.</p>
-    <p>Florida limited liability company. Serving South Florida.</p>
-    <p>&copy; 2026 MANNYS MARKET LLC. All rights reserved.</p>
-  </footer>
+  <a class="skip" href="#ticket">Skip to walk request</a>
+  <div class="topbar"></div>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#top">
+        <span class="qf">Quick Fix · South Florida</span>
+        <span class="kb">KEYS BACK</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#scope">Scope</a>
+        <a href="#walk">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a class="btn" href="#ticket">Walk a unit</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div>
+        <p class="kicker">Miami Gardens · 33169</p>
+        <h1>KEYS BACK</h1>
+        <p class="subhead">The vacant unit punch.</p>
+        <p class="geo">Carol City · Opa-locka · Miami Gardens</p>
+        <p class="lede">We take the vacancy punch so your guy isn't stuck in an empty unit.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#ticket">Walk the first unit</a>
+          <a class="btn ghost" href="#scope">What's in scope</a>
+        </div>
+      </div>
+
+      <form class="ticket" id="ticket" novalidate>
+        <div class="ticket-inner">
+          <h2>Walk ticket</h2>
+          <p class="hint">Fill this, copy it, send it. If the punch isn't worth doing, we say so.</p>
+          <label class="field" for="pm">Your name / office</label>
+          <input id="pm" name="pm" type="text" autocomplete="name" placeholder="PM or leasing office" />
+          <label class="field" for="property">Property / unit</label>
+          <input id="property" name="property" type="text" placeholder="Address or community + unit #" />
+          <label class="field">On the punch</label>
+          <div class="checks">
+            <label><input type="checkbox" name="item" value="Holes &amp; patch" checked /> Holes &amp; patch</label>
+            <label><input type="checkbox" name="item" value="Touch-up paint" checked /> Touch-up paint</label>
+            <label><input type="checkbox" name="item" value="Doors / knobs / locks" /> Doors / knobs / locks</label>
+            <label><input type="checkbox" name="item" value="Blinds &amp; hardware" /> Blinds &amp; hardware</label>
+            <label><input type="checkbox" name="item" value="Punch walk with photos" checked /> Photos on the walk</label>
+          </div>
+          <label class="field" for="notes">Anything else</label>
+          <textarea id="notes" name="notes" placeholder="Light make-ready only. No floors, electrical, or plumbing."></textarea>
+          <div class="ticket-foot">
+            <button class="btn" type="submit">Copy walk request</button>
+            <span class="status" id="status" role="status"></span>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <hr class="rule" />
+
+    <section id="scope">
+      <p class="kicker">The job</p>
+      <div class="split">
+        <article class="ledger in">
+          <h3>In scope</h3>
+          <ul>
+            <li>Holes &amp; patch</li>
+            <li>Touch-up paint</li>
+            <li>Doors / knobs / locks</li>
+            <li>Blinds &amp; hardware</li>
+            <li>Punch walk with photos</li>
+            <li>Under $2,500 only</li>
+          </ul>
+        </article>
+        <article class="ledger out">
+          <h3>Not in scope</h3>
+          <ul>
+            <li>New floors</li>
+            <li>Full gut / sheetrock crew</li>
+            <li>Electrical</li>
+            <li>Plumbing</li>
+            <li>We'll tell you on the walk</li>
+            <li>No guessing. Separate quote.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="walk">
+      <div class="steps">
+        <div class="aside">
+          <strong>How a unit closes</strong>
+          <p>One number. One invoice. Not-to-exceed before we start. You don't manage a roster.</p>
+        </div>
+        <ol>
+          <li>
+            <span class="num">01</span>
+            <div>
+              <h3>Walk it</h3>
+              <p>Same unit, same punch list. If it isn't light make-ready, we say so on the walk — not after drywall starts.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div>
+              <h3>NTE before tools come out</h3>
+              <p>Not-to-exceed in writing. Under $2,500. You approve, then we start.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div>
+              <h3>Punch</h3>
+              <p>Holes, touch-up, doors, blinds, hardware. If the tech is late, we replace him. You don't chase a freelancer.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div>
+              <h3>Keys back + photos</h3>
+              <p>Before / after the same day. You get the unit, not a status meeting.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="who">
+        <div>
+          <p class="kicker">Who this is for</p>
+          <p>We're not replacing your guy. When he's booked or stuck in a vacant, we take the small stuff.</p>
+        </div>
+        <ul>
+          <li><span>Yes —</span> small local PMs, overflow, Gardens-area light turns</li>
+          <li><span>Yes —</span> one invoice, you pay us, not a stranger off Craigslist</li>
+          <li><span>No —</span> becoming your maintenance department</li>
+          <li><span>No —</span> electrical, plumbing, HVAC, roofing, new floors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-band">
+        <h2>First unit: walk it with us.</h2>
+        <p>If the punch isn't worth doing, we say so.</p>
+        <p class="ask">Ask for Yaakov</p>
+        <p>KEYS BACK · Miami Gardens 33169</p>
+        <p style="margin-top:18px"><a class="btn" href="#ticket">Fill the walk ticket</a></p>
+      </div>
+    </section>
+
+    <footer class="legal">
+      <p><strong>MANNYS MARKET LLC</strong> doing business as Quick Fix.</p>
+      <p>Florida limited liability company. KEYS BACK is the vacant-unit punch product — light make-ready in Miami Gardens and nearby. We do not take electrical, plumbing, HVAC, or roofing on this contract.</p>
+      <p>&copy; 2026 MANNYS MARKET LLC. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var form = document.getElementById("ticket");
+      var status = document.getElementById("status");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var pm = document.getElementById("pm").value.trim() || "(name)";
+        var property = document.getElementById("property").value.trim() || "(property / unit)";
+        var notes = document.getElementById("notes").value.trim();
+        var items = Array.prototype.slice.call(form.querySelectorAll('input[name="item"]:checked'))
+          .map(function (el) { return el.value; });
+        var punch = items.length ? items.join(", ") : "(walk the unit)";
+        var msg = [
+          "KEYS BACK walk request",
+          "From: " + pm,
+          "Property: " + property,
+          "Punch: " + punch,
+          notes ? "Notes: " + notes : "",
+          "Light make-ready only. Under $2,500. No floors / electrical / plumbing.",
+          "Miami Gardens 33169 — ask for Yaakov"
+        ].filter(Boolean).join("\n");
+        function done(ok) {
+          status.textContent = ok ? "Copied. Paste it in a text." : "Copy failed — select the ticket and copy manually.";
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function () { done(true); }).catch(function () { done(false); });
+        } else {
+          done(false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
