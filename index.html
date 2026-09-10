@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Market Ready | Quick Fix | MANNYS MARKET LLC</title>
-  <meta name="description" content="Market Ready — vacant-unit punch in Miami Gardens. Light make-ready under $2,500. One invoice, NTE, photos. Operated by MANNYS MARKET LLC d/b/a Quick Fix." />
+  <title>MarketReady | Vacant unit punch | Miami Gardens</title>
+  <meta name="description" content="MarketReady — vacant-unit punch in Miami Gardens. Light make-ready under $2,500. One invoice, NTE, photos." />
   <meta name="theme-color" content="#101010" />
   <link rel="canonical" href="https://yaakov-shif.github.io/quickfixfl/" />
-  <meta property="og:title" content="Market Ready — vacant unit punch, Miami Gardens" />
+  <meta property="og:title" content="MarketReady — vacant unit punch, Miami Gardens" />
   <meta property="og:description" content="We take the vacancy punch so your guy isn't stuck in an empty unit. Under $2,500. No floors. No electrical. No plumbing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yaakov-shif.github.io/quickfixfl/" />
@@ -44,6 +44,7 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       border-left: var(--rail) solid var(--orange);
+      color-scheme: dark;
     }
     a { color: var(--amber); }
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
@@ -82,17 +83,10 @@
       text-decoration: none;
       color: inherit;
     }
-    .brand .qf {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 700;
-    }
     .brand .kb {
       font-family: var(--display);
       font-size: 28px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       line-height: 1;
     }
     .nav-links {
@@ -128,6 +122,12 @@
       color: #fff;
     }
     .btn:hover { filter: brightness(1.08); }
+    .btn:disabled { opacity: 0.55; cursor: wait; }
+    .hp { position: absolute; left: -9999px; height: 0; width: 0; opacity: 0; }
+    .sent-msg { display: none; padding: 28px 22px 24px; }
+    .ticket.is-sent .ticket-inner { display: none; }
+    .ticket.is-sent .sent-msg { display: block; }
+    .sent-msg h2 { font-family: var(--display); font-size: 32px; letter-spacing: 0.06em; margin: 0 0 8px; }
     .btn.ghost {
       background: transparent;
       color: var(--ink);
@@ -207,7 +207,7 @@
       color: var(--muted);
       margin: 12px 0 6px;
     }
-    input[type="text"], textarea {
+    input[type="text"], input[type="tel"], textarea {
       width: 100%;
       background: #111;
       color: var(--ink);
@@ -345,8 +345,7 @@
   <div class="wrap">
     <header class="nav">
       <a class="brand" href="#top">
-        <span class="qf">Quick Fix · South Florida</span>
-        <span class="kb">MARKET READY</span>
+        <span class="kb">MarketReady</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#scope">Scope</a>
@@ -359,7 +358,7 @@
     <section class="hero" id="top">
       <div>
         <p class="kicker">Miami Gardens · 33169</p>
-        <h1>MARKET<br>READY</h1>
+        <h1>Market<br>Ready</h1>
         <p class="subhead">The vacant unit punch.</p>
         <p class="geo">Carol City · Opa-locka · Miami Gardens</p>
         <p class="lede">We take the vacancy punch so your guy isn't stuck in an empty unit.</p>
@@ -372,11 +371,13 @@
       <form class="ticket" id="ticket" novalidate>
         <div class="ticket-inner">
           <h2>Walk ticket</h2>
-          <p class="hint">Fill this, copy it, send it. If the punch isn't worth doing, we say so.</p>
+          <p class="hint">Send this. If the punch isn't worth doing, we say so.</p>
           <label class="field" for="pm">Your name / office</label>
-          <input id="pm" name="pm" type="text" autocomplete="name" placeholder="PM or leasing office" />
+          <input id="pm" name="pm" type="text" autocomplete="name" required placeholder="PM or leasing office" />
+          <label class="field" for="cell">Your cell</label>
+          <input id="cell" name="cell" type="tel" autocomplete="tel" required placeholder="So we can call you back" />
           <label class="field" for="property">Property / unit</label>
-          <input id="property" name="property" type="text" placeholder="Address or community + unit #" />
+          <input id="property" name="property" type="text" required placeholder="Address or community + unit #" />
           <label class="field">On the punch</label>
           <div class="checks">
             <label><input type="checkbox" name="item" value="Holes &amp; patch" checked /> Holes &amp; patch</label>
@@ -387,10 +388,16 @@
           </div>
           <label class="field" for="notes">Anything else</label>
           <textarea id="notes" name="notes" placeholder="Light make-ready only. No floors, electrical, or plumbing."></textarea>
+          <label class="hp" for="company">Company</label>
+          <input class="hp" id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
           <div class="ticket-foot">
-            <button class="btn" type="submit">Copy walk request</button>
+            <button class="btn" type="submit" id="send">Send walk request</button>
             <span class="status" id="status" role="status"></span>
           </div>
+        </div>
+        <div class="sent-msg" id="sent">
+          <h2>Sent.</h2>
+          <p>We'll reply on the cell you left. If the punch isn't worth doing, we say so.</p>
         </div>
       </form>
     </section>
@@ -456,7 +463,7 @@
           <li>
             <span class="num">04</span>
             <div>
-              <h3>Market ready + photos</h3>
+              <h3>MarketReady + photos</h3>
               <p>Before / after the same day. You get a unit you can list, not a status meeting.</p>
             </div>
           </li>
@@ -484,46 +491,75 @@
         <h2>First unit: walk it with us.</h2>
         <p>If the punch isn't worth doing, we say so.</p>
         <p class="ask">Ask for Yaakov</p>
-        <p>Market Ready · Miami Gardens 33169</p>
+        <p>MarketReady · Miami Gardens 33169</p>
         <p style="margin-top:18px"><a class="btn" href="#ticket">Fill the walk ticket</a></p>
       </div>
     </section>
 
     <footer class="legal">
-      <p><strong>MANNYS MARKET LLC</strong> doing business as Quick Fix.</p>
-      <p>Florida limited liability company. Market Ready is the vacant-unit punch product — light make-ready in Miami Gardens and nearby. We do not take electrical, plumbing, HVAC, or roofing on this contract.</p>
-      <p>&copy; 2026 MANNYS MARKET LLC. All rights reserved.</p>
+      <p><strong>MarketReady</strong> · Miami Gardens</p>
+      <p>Light make-ready only. We do not take electrical, plumbing, HVAC, or roofing on this contract.</p>
+      <p>Operated by MANNYS MARKET LLC. &copy; 2026</p>
     </footer>
   </div>
   <script>
     (function () {
       var form = document.getElementById("ticket");
       var status = document.getElementById("status");
+      var send = document.getElementById("send");
+      var inbox = ["yaakov", "shifsales.com"].join("@");
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var pm = document.getElementById("pm").value.trim() || "(name)";
-        var property = document.getElementById("property").value.trim() || "(property / unit)";
+        if (document.getElementById("company").value) return;
+        var pm = document.getElementById("pm").value.trim();
+        var cell = document.getElementById("cell").value.trim();
+        var property = document.getElementById("property").value.trim();
         var notes = document.getElementById("notes").value.trim();
+        if (!pm || !cell || !property) {
+          status.textContent = "Name, cell, and property are required.";
+          return;
+        }
         var items = Array.prototype.slice.call(form.querySelectorAll('input[name="item"]:checked'))
           .map(function (el) { return el.value; });
         var punch = items.length ? items.join(", ") : "(walk the unit)";
-        var msg = [
-          "Market Ready walk request",
-          "From: " + pm,
-          "Property: " + property,
-          "Punch: " + punch,
-          notes ? "Notes: " + notes : "",
-          "Light make-ready only. Under $2,500. No floors / electrical / plumbing.",
-          "Miami Gardens 33169 — ask for Yaakov"
-        ].filter(Boolean).join("\n");
-        function done(ok) {
-          status.textContent = ok ? "Copied. Paste it in a text." : "Copy failed — select the ticket and copy manually.";
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(msg).then(function () { done(true); }).catch(function () { done(false); });
-        } else {
-          done(false);
-        }
+        send.disabled = true;
+        status.textContent = "Sending…";
+        var payload = {
+          _subject: "MarketReady walk request",
+          _template: "table",
+          _captcha: "false",
+          name: pm,
+          cell: cell,
+          property: property,
+          punch: punch,
+          notes: notes || "(none)",
+          message: [
+            "MarketReady walk request",
+            "From: " + pm,
+            "Cell: " + cell,
+            "Property: " + property,
+            "Punch: " + punch,
+            notes ? "Notes: " + notes : "",
+            "Light make-ready only. Under $2,500. No floors / electrical / plumbing."
+          ].filter(Boolean).join("\n")
+        };
+        fetch("https://formsubmit.co/ajax/" + inbox, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload)
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok && res.j && (res.j.success === true || res.j.success === "true")) {
+              form.classList.add("is-sent");
+              status.textContent = "";
+              return;
+            }
+            throw new Error((res.j && (res.j.message || res.j.error)) || "send failed");
+          })
+          .catch(function () {
+            send.disabled = false;
+            status.textContent = "Didn't send. Try again, or email " + inbox + ".";
+          });
       });
     })();
   </script>
